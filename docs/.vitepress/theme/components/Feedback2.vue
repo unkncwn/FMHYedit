@@ -61,11 +61,21 @@ const showCard = ref<boolean>(false)
 </script>
 
 <template>
-  <button v-if="!showCard" class="mt-2 text-primary font-bold text-underline" @click="showCard = true">
-    <span>Send Feedback 📩</span>
+  <button
+    v-if="!showCard"
+    class="mt-2 text-primary font-bold text-underline text-sm"
+    @click="showCard = true"
+  >
+    <span class="i-carbon-send-alt mr-2" />
+    <span>Send Feedback</span>
   </button>
-  <button v-if="showCard" class="mt-2 text-primary font-bold text-underline" @click="showCard = false">
-    <span>Close Feedback 📩</span>
+  <button
+    v-if="showCard"
+    class="mt-2 text-primary font-bold text-underline text-sm"
+    @click="showCard = false"
+  >
+    <span class="i-carbon-close mr-2" />
+    <span>Close Feedback</span>
   </button>
 
   <Transition name="fade" mode="out-in">
@@ -78,8 +88,13 @@ const showCard = ref<boolean>(false)
               <p class="heading">How helpful was this page?</p>
             </div>
           </div>
-          <div class="button-container">
-            <button v-for="item in feedbackOptions" :key="item.value" class="btn" @click="handleSubmit(item.value)">
+          <div class="flex flex-wrap gap-2">
+            <button
+              v-for="item in feedbackOptions"
+              :key="item.value"
+              class="btn"
+              @click="handleSubmit(item.value)"
+            >
               <span>{{ item.label }}</span>
             </button>
           </div>
@@ -89,7 +104,11 @@ const showCard = ref<boolean>(false)
             <p class="desc">Let us know how helpful this page is</p>
             <div>
               <span>{{ getFeedbackOption(feedback.type)?.label }}</span>
-              <button style="margin-left: 0.5rem" class="btn" @click="feedback.type = undefined">
+              <button
+                style="margin-left: 0.5rem"
+                class="btn"
+                @click="feedback.type = undefined"
+              >
                 <span class="i-carbon-close-large">close</span>
               </button>
             </div>
@@ -99,27 +118,37 @@ const showCard = ref<boolean>(false)
           </p>
           <div v-if="feedback.type === 'suggestion'" class="text-sm mb-2">
             <details>
-              <summary>Do not submit any of the following:</summary>
+              <summary>
+                <span class="i-carbon-warning ml-1 mb-1 bg-cerise-400" />
+                Do not submit any of the following:
+              </summary>
               <strong>🕹️ Emulators</strong>
               <p class="desc">
                 They're already on the
-                <a class="text-primary font-bold text-underline"
-                  href="https://emulation.gametechwiki.com/index.php/Main_Page">
+                <a
+                  class="text-primary font-bold text-underline"
+                  href="https://emulation.gametechwiki.com/index.php/Main_Page"
+                >
                   Game Tech Wiki.
                 </a>
               </p>
               <strong>🔻 Leeches</strong>
               <p class="desc">
                 They're already on the
-                <a class="text-primary font-bold text-underline"
-                  href="https://filehostlist.miraheze.org/wiki/Free_Premium_Leeches">
+                <a
+                  class="text-primary font-bold text-underline"
+                  href="https://filehostlist.miraheze.org/wiki/Free_Premium_Leeches"
+                >
                   File Hosting Wiki.
                 </a>
               </p>
               <strong>🐧 Distros</strong>
               <p class="desc">
                 They're already on
-                <a class="text-primary font-bold text-underline" href="https://distrowatch.com/">
+                <a
+                  class="text-primary font-bold text-underline"
+                  href="https://distrowatch.com/"
+                >
                   DistroWatch.
                 </a>
               </p>
@@ -134,16 +163,30 @@ const showCard = ref<boolean>(false)
               </p>
             </details>
           </div>
-          <textarea v-model="feedback.message" autofocus class="input" placeholder="What a lovely wiki!" />
+          <textarea
+            v-model="feedback.message"
+            autofocus
+            class="input"
+            placeholder="What a lovely wiki!"
+          />
           <p class="desc mb-2">
             If you want a reply to your feedback, feel free to mention a contact
             in the message or join our
-            <a class="text-primary font-semibold text-underline" href="https://discord.gg/Stz6y6NgNg">
+            <a
+              class="text-primary font-semibold text-underline"
+              href="https://discord.gg/Stz6y6NgNg"
+            >
               Discord.
             </a>
           </p>
-          <button type="submit" class="btn btn-primary" :disabled="feedback.message.length < 5 || feedback.message.length > 1000
-            " @click="handleSubmit()">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            :disabled="
+              feedback.message.length < 5 || feedback.message.length > 1000
+            "
+            @click="handleSubmit()"
+          >
             Send Feedback 📩
           </button>
         </div>
@@ -156,7 +199,7 @@ const showCard = ref<boolean>(false)
 </template>
 
 <style scoped>
-.step>*+* {
+.step > * + * {
   margin-top: 1rem;
 }
 
@@ -202,11 +245,6 @@ const showCard = ref<boolean>(false)
   font-weight: 700;
 }
 
-.button-container {
-  display: grid;
-  grid-gap: 0.5rem;
-}
-
 .wrapper {
   margin: 2rem 0;
   padding: 1.5rem;
@@ -231,12 +269,6 @@ const showCard = ref<boolean>(false)
   font-size: 12px;
   font-weight: 500;
   color: var(--vp-c-text-2);
-}
-
-@media screen and (min-width: 768px) {
-  .button-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .fade-enter-active,
