@@ -581,6 +581,8 @@
 * [PlayHDPorn Gay](https://www.playhdporn.com/categories/gay/)
 * [Yupdates](https://yupdates.neocities.org/) - Gay Porn Artwork / [Drives](https://cat.yupdates.art/) / [Discord](https://discord.com/invite/ECFKuBawQg)
 * [PBC](https://pbc.xxx/) - Gay Porn Encyclopedia
+* [GayMaleTube](https://www.gaymaletube.com/) - Gay Porn
+* [BoyfriendTV](https://www.boyfriendtv.com/) - Gay Porn
 * [MyReadingManga](https://myreadingmanga.info/) - LGBTQ+ Hentai
 * [BLCollection](https://blcollection.co/) - Boys Love Manga
 * [Nifty](https://www.nifty.org/nifty/) - LGBT / Fictional
